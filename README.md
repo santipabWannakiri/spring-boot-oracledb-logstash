@@ -19,3 +19,10 @@
 6. Back to  `/OracleDatabase/SingleInstance`
 
 7. Build images: `./buildContainerImage.sh -v 19.3.0 -t oracle-db:19.3.0 -e` This process might take a long time to create a cappy file and then build images.
+
+8. Docker run
+```docker
+docker run -d -it --name oracledb -p 1521:1521 -p 5500:5500 \
+  -e ORACLE_PDB=TESTDB -e ORACLE_PWD=zxcv1234 \
+  -v /your/local/path:/opt/in/container oracle-db:19.3.0
+```
