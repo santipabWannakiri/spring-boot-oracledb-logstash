@@ -26,3 +26,12 @@ docker run -d -it --name oracledb -p 1521:1521 -p 5500:5500 \
   -e ORACLE_PDB=TESTDB -e ORACLE_PWD=zxcv1234 \
   -v /your/local/path:/opt/in/container oracle-db:19.3.0
 ```
+
+### Create user Oracle Database 
+The sql below is an example of how to create an Oracel database user and grant full permission to create, update, and drop any table.
+```sql
+create user springboot identified by zxcv1234;
+grant connect to springboot;
+grant connect to springboot identified by zxcv1234;
+grant all privileges to springboot identified by zxcv1234;
+```
